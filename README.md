@@ -22,18 +22,18 @@ A full-stack visual AI system for industrial design teams to generate, iterate a
 
 ## Technology Stack
 
-**Languages**: Python, JavaScript, HTML5, CSS3
-**Frameworks**: Flask, asyncio
-**Libraries**: Pillow, OpenCV, NumPy, aiohttp, Pydantic, requests
-**Frontend**: Vanilla JavaScript, CSS Grid, Flexbox
-**APIs**: FAL.AI FIBO API, Bria.ai Image Generation API, Replicate API, Runware API
-**AI Models**: FIBO (Bria AI generative model)
-**Tools**: ComfyUI (node-based workflow), Nuke (compositing software)
-**Services**: FAL.AI, Bria.ai, Replicate, Runware
-**Agents**: Variant suggestion agent, consistency check agent, quality scoring agent, manufacturability analysis agent
-**Technologies**: REST API, JSON-native control, HDR image processing, 16-bit color depth conversion, async parallel processing
-**Data Integrations**: API-based image generation services, file system storage
-**Datasets**: User-provided design parameters, generated image metadata, JSON configuration files
+- **Languages**: Python, JavaScript, HTML5, CSS3
+- **Frameworks**: Flask, asyncio
+- **Libraries**: Pillow, OpenCV, NumPy, aiohttp, Pydantic, requests
+- **Frontend**: Vanilla JavaScript, CSS Grid, Flexbox
+- **APIs**: FAL.AI FIBO API, Bria.ai Image Generation API, Replicate API, Runware API
+- **AI Models**: FIBO (Bria AI generative model)
+- **Tools**: ComfyUI (node-based workflow), Nuke (compositing software)
+- **Services**: FAL.AI, Bria.ai, Replicate, Runware
+- **Agents**: Variant suggestion agent, consistency check agent, quality scoring agent, manufacturability analysis agent
+- **Technologies**: REST API, JSON-native control, HDR image processing, 16-bit color depth conversion, async parallel processing
+- **Data Integrations**: API-based image generation services, file system storage
+- **Datasets**: User-provided design parameters, generated image metadata, JSON configuration files
 
 ## Usages of the Project:
 
