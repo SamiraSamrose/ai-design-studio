@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Industrial Design Studio</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>AI-Driven Industrial Product Design Studio</h1>
+            <p class="subtitle">Generate photorealistic product designs with FIBO + ComfyUI + Nuke | HDR 16-bit Pipeline</p>
+        </header>
+
+        <main class="main-content">
+            <section class="control-panel">
+                <h2>Design Parameters - Intuitive Dashboard</h2>
+                
+                <div class="form-group">
+                    <label for="prompt">Product Description</label>
+                    <textarea id="prompt" rows="3" placeholder="Describe your product design...">Modern electric sedan with sleek aerodynamic body, LED headlights, and premium metallic finish</textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product_type">Product Type</label>
+                        <select id="product_type">
+                            <option value="car">Automotive</option>
+                            <option value="electronics">Consumer Electronics</option>
+                            <option value="appliance">Hardware/Appliance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="api_provider">API Provider</label>
+                        <select id="api_provider">
+                            <option value="fal">FAL.AI (FIBO)</option>
+                            <option value="bria">Bria.ai Direct</option>
+                            <option value="replicate">Replicate</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="parameter-section">
+                    <h3>Fine-Grained Artistic Control</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="camera_angle">Camera Angle (Independent Control)</label>
+                            <select id="camera_angle">
+                                <option value="three_quarter">Three Quarter View</option>
+                                <option value="front">Front View</option>
+                                <option value="side">Side View</option>
+                                <option value="isometric">Isometric View</option>
+                                <option value="top">Top View</option>
+                                <option value="low_angle">Low Angle</option>
+                                <option value="high_angle">High Angle</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lighting">Lighting (Independent Control)</label>
+                            <select id="lighting">
+                                <option value="studio">Studio Lighting</option>
+                                <option value="hdr">HDR Lighting</option>
+                                <option value="dramatic">Dramatic Lighting</option>
+                                <option value="natural">Natural Daylight</option>
+                                <option value="soft">Soft Lighting</option>
+                                <option value="product">Product Lighting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="material">Material</label>
+                            <select id="material">
+                                <option value="metal">Metal</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="glass">Glass</option>
+                                <option value="carbon_fiber">Carbon Fiber</option>
+                                <option value="leather">Leather</option>
+                                <option value="fabric">Fabric</option>
+                                <option value="rubber">Rubber</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="composition_focus">Composition (Independent Control)</label>
+                            <select id="composition_focus">
+                                <option value="centered">Centered</option>
+                                <option value="dynamic">Dynamic</option>
+                                <option value="rule_of_thirds">Rule of Thirds</option>
+                                <option value="dramatic_angle">Dramatic Angle</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color_palette">Color Palette (Independent Control)</label>
+                        <div class="color-palette-builder">
+                            <input type="color" id="color1" value="#1a1a1a" class="color-input">
+                            <input type="color" id="color2" value="#ffffff" class="color-input">
+                            <input type="color" id="color3" value="#c0c0c0" class="color-input">
+                            <span class="palette-preview" id="palette_preview"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fov">Field of View (Adjustable FOV)</label>
+                            <input type="range" id="fov" min="10" max="120" value="50" step="1">
+                            <span id="fov_value" class="slider-value">50°</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reflectivity">Reflections (Independent Control)</label>
+                            <input type="range" id="reflectivity" min="0" max="100" value="80" step="1">
+                            <span id="reflectivity_value" class="slider-value">80%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="texture_quality">Texture Quality</label>
+                            <input type="range" id="texture_quality" min="0" max="100" value="90" step="1">
+                            <span id="texture_quality_value" class="slider-value">90%</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="background">Background</label>
+                            <select id="background">
+                                <option value="studio_white">Studio White</option>
+                                <option value="studio_black">Studio Black</option>
+                                <option value="gradient">Gradient</option>
+                                <option value="environment">Environment</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameter-section">
+                    <h3>Output Configuration</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="width">Width (px)</label>
+                            <input type="number" id="width" min="512" max="2048" value="1024" step="64">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="height">Height (px)</label>
+                            <input type="number" id="height" min="512" max="2048" value="1024" step="64">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="hdr_enabled" checked>
+                            <label for="hdr_enabled">Enable HDR Processing (16-bit Pipeline)</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bit_depth">Bit Depth</label>
+                            <select id="bit_depth">
+                                <option value="8">8-bit</option>
+                                <option value="16" selected>16-bit (Production)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="json-preview-section">
+                    <h3>JSON Parameters (Real-time Auto-Update)</h3>
+                    <div class="json-display" id="json_display">
+                        <pre id="json_content">{}</pre>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="generate_btn" class="btn btn-primary">Generate Design</button>
+                    <button id="variants_btn" class="btn btn-secondary">Generate Variants (Parallel Agents)</button>
+                    <button id="clear_btn" class="btn btn-tertiary">Clear Parameters</button>
+                </div>
+            </section>
+
+            <section class="preview-panel">
+                <h2>Real-time Design Preview</h2>
+                <div id="preview_container" class="preview-container">
+                    <div class="placeholder">
+                        <p>Production-quality visuals will appear here</p>
+                        <p class="placeholder-note">HDR + 16-bit fidelity preserved</p>
+                    </div>
+                </div>
+                <div id="preview_controls" class="preview-controls" style="display: none;">
+                    <button id="refine_btn" class="btn btn-secondary">Refine Design (ComfyUI)</button>
+                    <button id="export_nuke_btn" class="btn btn-secondary">Export to Nuke (Professional Tool Integration)</button>
+                    <button id="manufacturability_btn" class="btn btn-secondary">Check Manufacturability</button>
+                    <button id="save_design_btn" class="btn btn-tertiary">Save Design</button>
+                </div>
+            </section>
+
+            <section class="metadata-panel">
+                <h2>Design Metadata & Parameters</h2>
+                <div id="metadata_container" class="metadata-container">
+                    <p>No design generated yet. All parameters are independently controllable with fine-grained artistic freedom.</p>
+                </div>
+            </section>
+
+            <section class="variants-panel" style="display: none;">
+                <div class="section-header">
+                    <h2>Design Variants - Parallel Agent Generation</h2>
+                    <p class="section-description">Multiple agents generate assets simultaneously, saving time for large studios</p>
+                </div>
+                <div id="variants_container" class="variants-container"></div>
+                <div id="consistency_report" class="consistency-report" style="display: none;">
+                    <h3>Consistency Analysis</h3>
+                    <div id="consistency_content"></div>
+                </div>
+                <div class="button-group">
+                    <button id="compare_variants_btn" class="btn btn-secondary">Create Visual Comparison Panel</button>
+                    <button id="select_best_btn" class="btn btn-secondary">AI Select Best Composition</button>
+                    <button id="export_all_nuke_btn" class="btn btn-tertiary">Export All to Nuke</button>
+                </div>
+            </section>
+
+            <section class="comparison-panel" style="display: none;">
+                <div class="section-header">
+                    <h2>Visual Comparison Panel - HDR & 16-bit Fidelity</h2>
+                    <p class="section-description">Side-by-side comparison with AI composition selection</p>
+                </div>
+                <div id="comparison_container" class="comparison-container"></div>
+                <div id="comparison_analysis" class="comparison-analysis"></div>
+            </section>
+
+            <section class="storyboard-panel" style="display: none;">
+                <div class="section-header">
+                    <h2>Drag-and-Drop Storyboard</h2>
+                    <p class="section-description">AI agent translates storyboard to preview with HDR and 16-bit fidelity</p>
+                </div>
+                <div id="storyboard_area" class="storyboard-area">
+                    <div class="storyboard-drop-zone" id="storyboard_drop">
+                        <p>Drag design variants here to create storyboard sequence</p>
+                        <p class="drop-hint">Or click to manually arrange designs</p>
+                    </div>
+                </div>
+                <div id="storyboard_frames" class="storyboard-frames"></div>
+                <div class="button-group">
+                    <button id="generate_storyboard_btn" class="btn btn-primary">Generate Storyboard Preview</button>
+                    <button id="export_storyboard_nuke_btn" class="btn btn-secondary">Export Storyboard to Nuke</button>
+                    <button id="clear_storyboard_btn" class="btn btn-tertiary">Clear Storyboard</button>
+                </div>
+            </section>
+
+            <section class="workflow-panel">
+                <h2>Enterprise-Grade Workflow Demonstration</h2>
+                <div class="workflow-features">
+                    <div class="feature-card">
+                        <h3>JSON-Native Automation</h3>
+                        <p>All parameters controllable via structured JSON. Real-time updates preserve design intent across FIBO, ComfyUI, and Nuke workflows.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Agentic Pipeline</h3>
+                        <p>Multiple agents work in parallel, performing consistency checks, suggesting variants, and optimizing for manufacturability automatically.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Professional Post-Production</h3>
+                        <p>Nuke-ready nodes with HDR 16-bit finishing. Compositors can tweak parameters while preserving JSON-native control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Scalable AI Workflows</h3>
+                        <p>Production-quality visuals without expensive photoshoots. Reduces design iteration cycles for automotive, consumer electronics, and hardware pipelines.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Enterprise-Grade Visual AI | FIBO + ComfyUI + Nuke | HDR 16-bit Pipeline | JSON-Native Control | Agentic Workflows</p>
+            <p class="footer-note">Pushes FIBO capabilities to define the future of generative AI pipelines</p>
+        </footer>
+    </div>
+
+    <div id="loading_overlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loading_text">Generating design...</p>
+        <p id="loading_subtext" class="loading-subtext"></p>
+    </div>
+
+    <div id="modal_overlay" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modal_title">Modal Title</h3>
+            <div id="modal_body"></div>
+            <div class="modal-buttons">
+                <button id="modal_confirm" class="btn btn-primary">Confirm</button>
+                <button id="modal_cancel" class="btn btn-tertiary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/api-client.js"></script>
+    <script src="static/js/dashboard.js"></script>
+    <script src="static/js/comparison.js"></script>
+    <script src="static/js/storyboard.js"></script>
+    <script src="static/js/app.js"></script>
+</body>
+</html>
